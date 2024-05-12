@@ -255,6 +255,12 @@ img#impresoraButton {
         var detalle = params.has('detalles') ? params.get('detalles') : "";
         var p_units = params.has('p_unit') ? params.get('p_unit') : "";
         var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
+
+        //Recibe los datos de los pendientes (separados por comas)
+        var cantidadesPend = params.has('cantidadesPend') ? params.get('cantidadesPend') : "";
+        var serviciosPend = params.has('serviciosPend') ? params.get('serviciosPend') : "";
+        var detallesPend = params.has('detallesPend') ? params.get('detallesPend') : "";
+
         
         //Formato de 2 decimales
         //total = parseFloat(total).toLocaleString('es-ES', { minimumFractionDigits: 2 });
@@ -373,7 +379,7 @@ img#impresoraButton {
     newRow.innerHTML = `
 
         
-       <td class="item" style="text-align: right;">${row.cantidad}</td>
+        <td class="item" style="text-align: right;">${row.cantidad}</td>
         <td class="item" style="text-align: right;">${row.descripcion}</td>
         <td class="item" style="text-align: right;">${row.detalle}</td>
         <td class="item" style="text-align: right;">${row.precio_unit}</td> <!-- Alinea a la derecha -->
@@ -444,29 +450,51 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
     
 
                 <tr class="table-footer top-line">
-                    <td class="" colspan="3"><h2>Subtotal:</h2></td>
-                    <td colspan="3"><h2 id="total"></h2></td>
-                </tr>
-                <tr class="table-footer">
-                    <td colspan="3"><h2>Descuento:</h2></td>
-                    <td colspan="3"><h2 id="subtotal_desc"></h2></td>
                     
                 </tr>
+
+
+
+                <!-- NUEVA TABLAAAAAA -->
+<table class="table">
+    <tbody id="tablaPendientes">
+        <tr class="table-header">
+            <th><h2>CantPEND</h2></th>
+            <th><h2>SerPEND</h2></th>
+            <th><h2>DetPEND</h2></th>
+        </tr>
+        <!-- DATOS DE NUEVA TABLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+    </tbody>
+</table>
+
+<script>  
+
+var tablaPendientesBody = document.getElementById("tablaPendientes");
+
+// Example data (replace with your actual data)
+
+var cantidadesPend = params.has('cantidadesPend') ? params.get('cantidadesPend') : "";
+var serviciosPend = params.has('serviciosPend') ? params.get('serviciosPend') : "";
+var detallesPend = params.has('detallesPend') ? params.get('detallesPend') : "";
+
+cantidadesPend.forEach(function(value, id) {
+    var newRow = document.createElement("tr");
+    newRow.className = "table-item";
+
+    newRow.innerHTML = `
+        <td class="item" style="text-align: right;">${cantidadesPend[id]}</td>
+        <td class="item" style="text-align: right;">${serviciosPend[id]}</td>
+        <td class="item" style="text-align: right;">${detallesPend[id]}</td>
+    `;
+
+        
+
+    tablaPendientesBody.appendChild(newRow);
+});
                 
-                <tr class="table-footer">
-                    <td colspan="3"><h2>A cuenta:</h2></td>
-                    <td colspan="3"><h2 id="a_cuenta"></h2></td>
-                    
-                </tr>
                 
-                <tr class="table-footer">
-                    <td colspan="3"><h2>Total a pagar:</h2></td>
-                    <td colspan="3"><h2 id="total_a_pagar"></h2></td>
-                </tr>
-                
-                
-                
-                
+</script>        
+     
             </tbody>
         </table>
         <br/>
@@ -497,6 +525,8 @@ contamos con la garantía de satisfacción del 100%</b>
         var a_cuentaElement = document.getElementById("a_cuenta").textContent = a_cuenta;
         var estadoElement = document.getElementById("estado").textContent = estado;
       </script>   
+
+
 
 <script>
 // Obtén el botón de WhatsApp por su ID
