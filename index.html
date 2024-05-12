@@ -530,9 +530,9 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
 <table class="table">
     <tbody id="tablaPendientes">
         <tr class="table-header">
-            <th><h2>Cantidad Pendiente</h2></th>
-            <th><h2>Servicio Pendiente</h2></th>
-            <th><h2>Detalle Pendiente</h2></th>
+            <th><h2>CantPendiente</h2></th>
+            <th><h2>ServPendiente</h2></th>
+            <th><h2>DetPendiente</h2></th>
         </tr>
         <!-- Rows for pending items will be dynamically added here -->
     </tbody>
@@ -543,7 +543,7 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
   var tablaPendientesBody = document.getElementById("tablaPendientes");
 
 // Example data (replace with your actual data)
-var cantidadesPend = params.has('cantidades') ? params.get('cantidades') : "";
+var cantidadesPend = params.has('cantidadesPend') ? params.get('cantidadesPend') : "";
 var serviciosPend = params.has('serviciosPend') ? params.get('serviciosPend') : "";
 var detallesPend = params.has('detallesPend') ? params.get('detallesPend') : "";
 
