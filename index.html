@@ -255,6 +255,12 @@ img#impresoraButton {
         var detalle = params.has('detalles') ? params.get('detalles') : "";
         var p_units = params.has('p_unit') ? params.get('p_unit') : "";
         var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
+
+       //Recibe los datos de los servicios (separados por comas)
+        var cantidadesPend = params.has('cantidadesPend') ? params.get('cantidadesPend') : "";
+        var serviciosPend = params.has('serviciosPend') ? params.get('serviciosPend') : "";
+        var detallesPend = params.has('detallesPend') ? params.get('detallesPend') : "";
+        
         
         //Formato de 2 decimales
         //total = parseFloat(total).toLocaleString('es-ES', { minimumFractionDigits: 2 });
