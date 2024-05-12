@@ -257,9 +257,9 @@ img#impresoraButton {
         var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
 
        //Recibe los datos de los servicios (separados por comas)
-        var cantidadesPend = params.has('cantidadesPend') ? params.get('cantidadesPend') : "";
-        var serviciosPend = params.has('serviciosPend') ? params.get('serviciosPend') : "";
-        var detallesPend = params.has('detallesPend') ? params.get('detallesPend') : "";
+        var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
+        var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
+        var detallespend = params.has('detallespend') ? params.get('detallespend') : "";
         
         
         //Formato de 2 decimales
@@ -549,9 +549,9 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
   var tablaPendientesBody = document.getElementById("tablaPendientes");
 
 // Example data (replace with your actual data)
-var cantidadesPend = params.has('cantidadesPend') ? params.get('cantidadesPend') : "";
-var serviciosPend = params.has('serviciosPend') ? params.get('serviciosPend') : "";
-var detallesPend = params.has('detallesPend') ? params.get('detallesPend') : "";
+var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
+var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
+var detallespend = params.has('detallespend') ? params.get('detallespend') : "";
 
 
 
@@ -565,9 +565,9 @@ cantidadesPend.forEach(function(value, id) {
     newRow.className = "table-item";
 
     newRow.innerHTML = `
-        <td class="item" style="text-align: right;">${cantidadesPend[id]}</td>
-        <td class="item" style="text-align: right;">${serviciosPend[id]}</td>
-        <td class="item" style="text-align: right;">${detallesPend[id]}</td>
+        <td class="item" style="text-align: right;">${row.cantidadespend}</td>
+        <td class="item" style="text-align: right;">${row.serviciospend}</td>
+        <td class="item" style="text-align: right;">${row.detallespend}</td>
     `;
 
     tablaPendientesBody.appendChild(newRow);
