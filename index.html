@@ -8,7 +8,7 @@
     <style>
         * {
             font-family: tahoma, Helvetica, sans-serif;
-            font-size: 2.7mm !important;
+            font-size: 2mm !important;
             line-height: 1 !important;
         }
 
@@ -337,10 +337,10 @@
                     <thead class="table-header">
                         <tr>
                             <th class="align-left">
-                                <h2>Cant pend</h2>
+                                <h2>Cant Pediente</h2>
                             </th>
                             <th class="align-left">
-                                <h2>Descripción pend</h2>
+                                <h2>Servicio pendiente</h2>
                             </th>
                             <th class="align-left">
                                 <h2>Detalle pendiente</h2>
@@ -348,7 +348,6 @@
                         </tr>
                     </thead>
                     <tbody class="table-item" id="itemsPendientes"></tbody>
-                    <tfoot class="table-footer" id="totales"></tfoot>
                 </table>
             </div>
         </div>
@@ -357,7 +356,7 @@
             <p id="codigo_pais"></p>
             <p id="telefono"></p>
             <p>
-                
+                <b> <span id="fecha_entrega_id"></span></b>
             </p>
         </div>
         <div class="footer">
@@ -400,11 +399,11 @@
         var totals = document.getElementById("totales");
 
         var totalsStr = `<tr class="pt-2">
-            <td class="align-left top-line" colspan="4"></td>
+            <td class="align-left top-line" colspan="4">Descuento:</td>
             <td class="align-right top-line">${descuento}</td>
             </tr>
             <tr>
-            <td class="align-left" colspan="4"></td>
+            <td class="align-left" colspan="4">A Cuenta:</td>
             <td class="align-right">${a_cuenta}</td>
             </tr>
             <tr>
@@ -416,4 +415,5 @@
     </script>
 </body>
 </html>
+
 
