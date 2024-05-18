@@ -312,7 +312,7 @@
                 <thead class="table-header">
                     <tr>
                         <th class="align-left">
-                            <h2>Can</h2>
+                            <h2>Cant</h2>
                         </th>
                         <th class="align-left">
                             <h2>Descripción</h2>
@@ -331,22 +331,21 @@
                 <tbody class="table-item" id="items"></tbody>
                 <tfoot class="table-footer" id="totales"></tfoot>
             </table>
-
-               <p>PENDIENTE POR REPROCESO:</p>
-
-            
+          
+   <p>PENDIENTE POR REPROCESO</p>
+    
             <div>
                 <table class="table">
                     <thead class="table-header">
                         <tr>
                             <th class="align-left">
-                                <h2>Can</h2>
+                                <h2>Cant pendiente</h2>
                             </th>
                             <th class="align-left">
-                                <h2>Descripción</h2>
+                                <h2>Servicio pendiente</h2>
                             </th>
                             <th class="align-left">
-                                <h2>Detalle</h2>
+                                <h2>Detalle pendiente</h2>
                             </th>
                         </tr>
                     </thead>
@@ -364,7 +363,7 @@
         </div>
         <div class="footer">
             <p>¡Gracias por su compra!</p>
-            <p>Atendido por:Easy Laundry-- <span id="atendido"></span></p>
+            <p>Atendido por: Easy Laundry <span id="atendido"></span></p>
         </div>
     </div>
 
@@ -402,11 +401,11 @@
         var totals = document.getElementById("totales");
 
         var totalsStr = `<tr class="pt-2">
-            <td class="align-left top-line" colspan="4">D:</td>
+            <td class="align-left top-line" colspan="4">Descuento:</td>
             <td class="align-right top-line">${descuento}</td>
             </tr>
             <tr>
-            <td class="align-left" colspan="4">A:</td>
+            <td class="align-left" colspan="4">A Cuenta:</td>
             <td class="align-right">${a_cuenta}</td>
             </tr>
             <tr>
@@ -418,6 +417,5 @@
     </script>
 </body>
 </html>
-
 
 
