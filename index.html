@@ -214,7 +214,7 @@
         const params = new URLSearchParams(window.location.search);
 
         var nro_boleta = params.has('boleta') ? params.get('boleta') : "---";
-        var nombre_cliente = params.has('cliente') ? params.get('cliente') : "==Cliente==";
+        var nombre_cliente = params.has('cliente') ? params.get('cliente') : "--";
         var telefono = params.has('telefono') ? params.get('telefono') : "==Cliente==";
         var codigo_pais = params.has('codigo_pais') ? params.get('codigo_pais') : "==Cliente==";
         var fecha = params.has('fecha') ? params.get('fecha') : "dd/mm/aaaa hh:mm:ss";
@@ -337,7 +337,7 @@
                     <thead class="table-header">
                         <tr>
                             <th class="align-left">
-                                <h2>Can</h2>
+                                <h2>Cant</h2>
                             </th>
                             <th class="align-left">
                                 <h2>Descripción</h2>
@@ -400,11 +400,11 @@
         var totals = document.getElementById("totales");
 
         var totalsStr = `<tr class="pt-2">
-            <td class="align-left top-line" colspan="4">Descuento:</td>
+            <td class="align-left top-line" colspan="4">D:</td>
             <td class="align-right top-line">${descuento}</td>
             </tr>
             <tr>
-            <td class="align-left" colspan="4">A Cuenta:</td>
+            <td class="align-left" colspan="4">A:</td>
             <td class="align-right">${a_cuenta}</td>
             </tr>
             <tr>
