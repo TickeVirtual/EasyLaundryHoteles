@@ -312,7 +312,7 @@
                 <thead class="table-header">
                     <tr>
                         <th class="align-left">
-                            <h2>Cant</h2>
+                            <h2>Can</h2>
                         </th>
                         <th class="align-left">
                             <h2>Descripción</h2>
@@ -331,21 +331,19 @@
                 <tbody class="table-item" id="items"></tbody>
                 <tfoot class="table-footer" id="totales"></tfoot>
             </table>
-          
-   <p>PENDIENTE POR REPROCESO</p>
-    
+
             <div>
                 <table class="table">
                     <thead class="table-header">
                         <tr>
                             <th class="align-left">
-                                <h2>Cant pendiente</h2>
+                                <h2>Can</h2>
                             </th>
                             <th class="align-left">
-                                <h2>Servicio pendiente</h2>
+                                <h2>Descripción</h2>
                             </th>
                             <th class="align-left">
-                                <h2>Detalle pendiente</h2>
+                                <h2>Detalle</h2>
                             </th>
                         </tr>
                     </thead>
@@ -358,12 +356,12 @@
             <p id="codigo_pais"></p>
             <p id="telefono"></p>
             <p>
-                <b>- <span id="fecha_entrega_id"></span></b>
+                <b>-- <span id="fecha_entrega_id"></span></b>
             </p>
         </div>
         <div class="footer">
             <p>¡Gracias por su compra!</p>
-            <p>Atendido por: Easy Laundry2 <span id="atendido"></span></p>
+            <p>Atendido por: Easy Laundry v2<span id="atendido"></span></p>
         </div>
     </div>
 
@@ -401,11 +399,11 @@
         var totals = document.getElementById("totales");
 
         var totalsStr = `<tr class="pt-2">
-            <td class="align-left top-line" colspan="4">D:</td>
+            <td class="align-left top-line" colspan="4">Descuento:</td>
             <td class="align-right top-line">${descuento}</td>
             </tr>
             <tr>
-            <td class="align-left" colspan="4">A:</td>
+            <td class="align-left" colspan="4">A Cuenta:</td>
             <td class="align-right">${a_cuenta}</td>
             </tr>
             <tr>
