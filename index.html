@@ -12,6 +12,9 @@
         line-height: 1 !important;
       }
 
+
+      
+
       .info-tienda {
         margin-top: 0;
         margin-bottom: 1mm;
@@ -503,6 +506,64 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         
 
     </div>
+
+// empieza la nueva tabla
+
+<table id="data-table">
+        <thead>
+            <tr>
+                <th>CANTIDAD1</th>
+                <th>SERVICIO1</th>
+                <th>DETALLE1</th>
+            </tr>
+        </thead>
+        <tbody>
+        <script>
+          // Obtener los parámetros de la URL
+const params = new URLSearchParams(window.location.search);
+
+var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
+var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
+var detallespend = params.has('detallespend') ? params.get('detallespend') : "";
+
+// Convertir las cadenas de texto en arreglos
+var cantidadesArray = cantidadespend ? cantidadespend.split(',') : [];
+var serviciosArray = serviciospend ? serviciospend.split(',') : [];
+var detallesArray = detallespend ? detallespend.split(',') : [];
+
+// Obtener el cuerpo de la tabla
+var tbody = document.querySelector('#data-table tbody');
+
+// Llenar la tabla con los datos
+for (let i = 0; i < Math.max(cantidadesArray.length, serviciosArray.length, detallesArray.length); i++) {
+    // Crear una nueva fila
+    let row = document.createElement('tr');
+
+    // Crear y añadir las celdas a la fila
+    let cantidadCell = document.createElement('td');
+    cantidadCell.textContent = cantidadesArray[i] || '';
+    row.appendChild(cantidadCell);
+
+    let servicioCell = document.createElement('td');
+    servicioCell.textContent = serviciosArray[i] || '';
+    row.appendChild(servicioCell);
+
+    let detalleCell = document.createElement('td');
+    detalleCell.textContent = detallesArray[i] || '';
+    row.appendChild(detalleCell);
+
+    // Añadir la fila al cuerpo de la tabla
+    tbody.appendChild(row);
+}
+
+      </script>
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+
+    // finaliza la nueva tabla      
+
+          
     <script>
         var nroBoletaElement = document.getElementById("nro_boleta_id").textContent = nro_boleta;
         var fechaElement = document.getElementById("fecha").textContent = fecha;
