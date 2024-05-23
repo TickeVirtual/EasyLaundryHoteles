@@ -420,38 +420,7 @@ img#impresoraButton {
 
 //Pendientes_____________________********************************************************************************________
 
-<table class="table">
-            <tbody id="tablaBody">
-                <tr class="table-header">
-    <th><h2>cantidadespend</h2></th>
-    <th><h2>serviciospend</h2></th>
-     <th><h2>detallespend</h2></th>
-    
-                 </tr>
-                <script>
-
-
-                    var tablaBody = document.getElementById("tablaBody");
-
-                    result.forEach(function(row) {
-    var newRow = document.createElement("tr");
-    newRow.className = "table-item";
-
-    // Calcula el subtotal para el servicio actual
-    
-    
-    newRow.innerHTML = `
-
-        
-       <td class="item" style="text-align: right;">${row.cantidadespend}</td>
-        <td class="item" style="text-align: right;">${row.serviciospend}</td>
-        <td class="item" style="text-align: right;">${row.detallespend}</td>
-        
-    `;
-
-    tablaBody.appendChild(newRow);
-});
-                  
+     
 
 
  //Pendientes___________*********************************************************__________________                 
