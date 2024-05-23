@@ -255,6 +255,12 @@ img#impresoraButton {
         var detalle = params.has('detalles') ? params.get('detalles') : "";
         var p_units = params.has('p_unit') ? params.get('p_unit') : "";
         var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
+      
+      //Pendientes
+
+        var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
+        var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
+        var detallespend = params.has('detallespend') ? params.get('detallespend') : "";
         
         //Formato de 2 decimales
         //total = parseFloat(total).toLocaleString('es-ES', { minimumFractionDigits: 2 });
@@ -280,6 +286,29 @@ img#impresoraButton {
               
             };
         });
+
+//Pendientes_____________________________
+
+             //crea una lista de cada columna a partir de las comas.
+        cantidadespend = cantidadespend.split(",");
+        serviciospend = serviciospend.split(",");
+        detallespend = detallespend.split(",");
+       
+
+        //Crea una lista para mostrar en cada fila de la tabla
+        var result = [];
+        
+        cantidadespend.forEach(function(value, id) {
+            result[id] = {
+                cantidadespend: cantidadespend[id],
+               serviciospend: serviciospend[id], 
+                detallespend: detallespend[id],
+                
+            };
+        }); 
+      
+//Pendientes_____________________________
+      
     </script>
     
     <div id="header">
@@ -388,9 +417,47 @@ img#impresoraButton {
                 /*print();*/
             });
         });
+
+//Pendientes_____________________********************************************************************************________
+
+<table class="table">
+            <tbody id="tablaBody">
+                <tr class="table-header">
+    <th><h2>cantidadespend</h2></th>
+    <th><h2>serviciospend</h2></th>
+     <th><h2>detallespend</h2></th>
+    
+                 </tr>
+                <script>
+
+
+                    var tablaBody = document.getElementById("tablaBody");
+
+                    result.forEach(function(row) {
+    var newRow = document.createElement("tr");
+    newRow.className = "table-item";
+
+    // Calcula el subtotal para el servicio actual
+    
+    
+    newRow.innerHTML = `
+
         
-        /*MENSAJE DE WHATSAPP
-                    ];*/
+       <td class="item" style="text-align: right;">${row.cantidadespend}</td>
+        <td class="item" style="text-align: right;">${row.serviciospend}</td>
+        <td class="item" style="text-align: right;">${row.detallespend}</td>
+        
+    `;
+
+    tablaBody.appendChild(newRow);
+});
+                  
+
+
+ //Pendientes___________*********************************************************__________________                 
+                  
+        
+
         
     </script>
                 
@@ -495,6 +562,10 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         var total_a_pagarElement = document.getElementById("total_a_pagar").textContent = total_a_pagar;
         var a_cuentaElement = document.getElementById("a_cuenta").textContent = a_cuenta;
         var estadoElement = document.getElementById("estado").textContent = estado;
+
+
+
+      
       </script>   
 
 <script>
