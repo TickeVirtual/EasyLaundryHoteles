@@ -291,30 +291,6 @@ img#impresoraButton {
         });
 
 
-
-
-
-
-        //Inicio tb 2 crea una lista de cada columna a partir de las comas._____________________________________________
-
-        cantidadespend = cantidadespend.split(",");
-        serviciospend = serviciospend.split(",");
-        detallespend = detallespend.split(",");
-        
-        //Crea una lista para mostrar en cada fila de la tabla
-        var result = [];
-        
-        cantidadespend.forEach(function(value, id) {
-            result[id] = {
-              cantidadespend: cantidadespend[id],
-              serviciospend: serviciospend[id], 
-              detallespend: detallespend[id],
-                
-              
-            };
-        });
-//fin tb 2______________________________________________________________-
-
     </script>
     
     <div id="header">
@@ -360,7 +336,7 @@ img#impresoraButton {
         </div>
         <div class="label">
             <p class="fecha">
-                FECHA :
+                FECHA DE RECEPCION:
                 <br>
                 <b id="fecha"></b>
             </p>
@@ -516,98 +492,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
             <p class="policy-title">
                 <b>Considerar que las siguientes prendas quedan en la planta, para su tratamiento2:</b>
             </p>
-     
-    <!--TB INICIOOOOOOOOOOOOOOOOOOOO-->
-
-    <table class="table">
-            <tbody id="tablaBody">
-                <tr class="table-header">
-    <th><h2>cantidadespend</h2></th>
-    <th><h2>serviciospend</h2></th>
-     <th><h2>detallespend</h2></th>
-    
-                 </tr>
-                <script>
-
-
-                    var tablaBody = document.getElementById("tablaBody");
-
-                    result.forEach(function(row) {
-    var newRow = document.createElement("tr");
-    newRow.className = "table-item";
-
-    
-    
-    newRow.innerHTML = `
-
         
-        <td class="item" style="text-align: right;">${row.cantidadespend}</td>
-        <td class="item" style="text-align: right;">${row.serviciospend}</td>
-        <td class="item" style="text-align: right;">${row.detallespend}</td>
-        
-    `;
-
-    tablaBody.appendChild(newRow);
-});
-
-                document.querySelectorAll('.printbutton').forEach(function(element) {
-            element.addEventListener('click', function() {
-                /*print();*/
-            });
-        });
-
-
-        
-
-        
-    </script>
-                
-    
-
-
-     
-        
-    
-    
-
-                <tr class="table-footer top-line">
-                    <td class="" colspan="3"><h2>-</h2></td>
-                    <td colspan="3"><h2 id="total"></h2></td>
-                </tr>
-
-                <tr class="table-footer">
-                    <td colspan="3"><h2>-</h2></td>
-                    <td colspan="3"><h2 id="subtotal_desc"></h2></td>
-                    
-                </tr>
-                
-                <tr class="table-footer">
-                    <td colspan="3"><h2>-</h2></td>
-                    <td colspan="3"><h2 id="a_cuenta"></h2></td>
-                    
-                </tr>
-                
-                <tr class="table-footer">
-                    <td colspan="3"><h2>Total a pagar2:</h2></td>
-                    <td colspan="3"><h2 id="total_a_pagar"></h2></td>
-                </tr>
-                
-                
-                
-                
-            </tbody>
-        </table>
-        <br/>
-
-
-
-    
-<!--tb finnnnnnnnnnnnnn>
-
-
-            
-
-
 
     </div>
 
