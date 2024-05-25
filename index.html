@@ -531,7 +531,64 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
     impresoraButton.style.display = 'none';
 }
 </script>
+// nueva tabla
 
+   <table border="1">
+        <thead>
+            <tr>
+                <th>CANTIDAD1</th>
+                <th>SERVICIO1</th>
+                <th>DETALLE1</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-datos">
+            <!-- Filas de la tabla se insertarán aquí -->
+        </tbody>
+    </table>
+
+    <script>
+        // Función para obtener los parámetros de la URL
+        function getParams() {
+            let params = new URLSearchParams(window.location.search);
+            return {
+                cantidadespend: params.has('cantidadespend') ? params.get('cantidadespend').split(',') : [],
+                serviciospend: params.has('serviciospend') ? params.get('serviciospend').split(',') : [],
+                detallespend: params.has('detallespend') ? params.get('detallespend').split(',') : []
+            };
+        }
+
+        // Obtener los parámetros
+        const { cantidadespend, serviciospend, detallespend } = getParams();
+
+        // Obtener el cuerpo de la tabla
+        const tbody = document.getElementById('tabla-datos');
+
+        // Asegurarse de que todos los arrays tengan la misma longitud
+        const length = Math.max(cantidadespend.length, serviciospend.length, detallespend.length);
+
+        // Rellenar la tabla con los datos
+        for (let i = 0; i < length; i++) {
+            let row = document.createElement('tr');
+
+            let cellCantidad = document.createElement('td');
+            cellCantidad.textContent = cantidadespend[i] || '';
+            row.appendChild(cellCantidad);
+
+            let cellServicio = document.createElement('td');
+            cellServicio.textContent = serviciospend[i] || '';
+            row.appendChild(cellServicio);
+
+            let cellDetalle = document.createElement('td');
+            cellDetalle.textContent = detallespend[i] || '';
+            row.appendChild(cellDetalle);
+
+            tbody.appendChild(row);
+        }
+    </script>
+          
+          
+// fin nuea tb
+          
 </body>
 </html>
 
