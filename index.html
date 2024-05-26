@@ -290,6 +290,30 @@ img#impresoraButton {
             };
         });
 
+//INICIO
+
+cantidadespend = cantidadespend.split(",");
+serviciospend = serviciospend.split(",");
+detallespend = detallespend.split(",");
+    
+
+        //Crea una lista para mostrar en cada fila de la tabla
+        var result = [];
+        
+        cantidades.forEach(function(value, id) {
+            result[id] = {
+              detallespend: detallespend[id],
+                descripcion: detallespend[id], // + " " + detalles[id], // Descomenta si deseas concatenar la descripción con el detalle
+                detallespend: detallespend[id],
+
+              
+            };
+        });
+
+
+//FIN
+
+        
 
     </script>
     
@@ -499,7 +523,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
     <table class="table">
             <tbody id="tablaBodya">
                 <tr class="table-header">
-    <th><h2>cantidadespend2</h2></th>
+    <th><h2>cantidadespend</h2></th>
     <th><h2>serviciospend</h2></th>
      <th><h2>detallespend</h2></th>
     
