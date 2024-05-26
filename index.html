@@ -259,7 +259,7 @@ img#impresoraButton {
 
         var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
         var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
-        var detallespend = params.has('detallespend') ? params.get('detallespend') : "";
+        var detallespend  = params.has('detallespend') ? params.get('detallespend') : "";
         
 
         //crea una lista de cada columna a partir de las comas.
@@ -480,9 +480,9 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         <th>Descripción</th>
 
         </tr>
-        <tr>
-          <td colspan="1"><h2 id="detallespend"></h2></td>
-        </tr>
+        <p class="saldo-text">
+            <b><span class="detallespend" id="detallespend"></span></b>
+        </p>
                          
 
         
