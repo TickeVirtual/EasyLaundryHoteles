@@ -197,7 +197,7 @@
       var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
       var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
       var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
-      var detallespend  = params.has('detallespend') ? params.get('detallespend') : "";
+      var detallespend  = params.has('detallespend') ? params.get('detallespend') : "==no hay detalles==";
       cantidades = cantidades.split(",");
       descripciones = descripciones.split(",");
       detalle = detalle.split(",");
@@ -350,7 +350,7 @@
       document.getElementById("a_cuenta").innerText = a_cuenta;
       document.getElementById("descuento").innerText = descuento;
       document.getElementById("estado").innerText = estado;
-      document.getElementById("detallespend_field").innerText = detallespend;
+      document.getElementById("detallespend").innerText = detallespend;
 
       var table = document.getElementById("tabla_body");
       result.forEach(function(value) {
