@@ -228,10 +228,6 @@ img#impresoraButton {
     </style>
  </head>
 
-      <!-- <body onload="window.print()" onfocus="window.close()" -->
-      
-        <!--<button id="whatsappButton">ENVIAR WHATSAPP</button>
-       <!--<button id="Imprimirr">Print</button>-->
 
 
     <script>
@@ -244,7 +240,7 @@ img#impresoraButton {
         var telefono = params.has('telefono') ? params.get('telefono') : "==Cliente==";
         var codigo_pais = params.has('codigo_pais') ? params.get('codigo_pais') : "==Cliente==";
         var fecha = params.has('fecha') ? params.get('fecha') : "dd/mm/aaaa hh:mm:ss";
-        var fecha_entrega = params.has('fecha_entrega') ? params.get('fecha_entrega') : "hh:mm:ss";
+        var fecha_entrega = params.has('fecha_entrega') ? params.get('fecha_entrega') : " ";
         var total = params.has('total') ? params.get('total') : "";
         var subtotal_desc = params.has('subtotal_desc') ? params.get('subtotal_desc') : " ";
         var total_a_pagar = params.has('total_a_pagar') ? params.get('total_a_pagar') : " ";
@@ -265,11 +261,7 @@ img#impresoraButton {
         var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
         var detallespend = params.has('detallespend') ? params.get('detallespend') : "";
         
-        //Formato de 2 decimales
-        //total = parseFloat(total).toLocaleString('es-ES', { minimumFractionDigits: 2 });
-        //descuento = parseFloat(descuento).toLocaleString('es-ES', { minimumFractionDigits: 2 });
-        //subtotal_desc = parseFloat(subtotal_desc).toLocaleString('es-ES', { minimumFractionDigits: 2 });
-        
+
         //crea una lista de cada columna a partir de las comas.
         cantidades = cantidades.split(",");
         descripciones = descripciones.split(",");
@@ -347,14 +339,14 @@ img#impresoraButton {
 
         <!-- <div class="line">***********************************************</div> -->
         
-       <!-- <div class="label">
+       <div class="label">
             <p class="fecha_entrega">
                 <b>
-                    --: <br>
+                    -- <br>
                     <span id="hora"></span>
                 </b>
             </p>
-        </div>-->
+        </div>
    
         <table class="table">
             <tbody id="tablaBody">
