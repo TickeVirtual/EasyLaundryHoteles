@@ -166,8 +166,8 @@
         font-size: 2mm;
       }
 
-      .estado-deuda {
-        font-size: 8mm !important;
+      .detallespend {
+        font-size: 2.7mm !important;
       }
 
       .info {
@@ -276,7 +276,7 @@ img#impresoraButton {
         var porcent_desc = params.has('porcent_desc') ? params.get('porcent_desc') : " ";
         var porcent_desc_plata = params.has('porcent_desc_plata') ? params.get('porcent_desc_plata') : " ";
         var total_por_pagar = params.has('total_por_pagar') ? params.get('total_por_pagar') : " ";
-        var estado = params.has('estado') ? params.get('estado') : "--";
+        var detallespend = params.has('detallespend') ? params.get('detallespend') : "--";
         
         
         
@@ -340,9 +340,9 @@ img#impresoraButton {
              <img class="boton" src="Lavaflash.png" class="ImganelLogo" width= "80%" id "foto">
             <br/>
             <p class="info-tienda">
-                Jr Pablo Usandizaga 533
+                direccion
                 <br>
-                Telefono: 942279627 - 01 2251308
+                Telefono:
                 <br>
                 -
         
@@ -526,7 +526,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         <br/>
 
         <p class="saldo-text">
-            <b><span class="estado-deuda" id="estado"></span></b>
+            <b><span class="detallespend" id="detallespend"></span></b>
         </p>
         <br/>
        <div class="policy">
@@ -572,7 +572,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         //var porcent_desc_plataElement = document.getElementById("porcent_desc_plata").textContent = porcent_desc_plata;
            
         
-        var estadoElement = document.getElementById("estado").textContent = estado;
+        var detallespendElement = document.getElementById("detallespend").textContent = detallespend;
       </script>   
 
 <script>
