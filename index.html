@@ -472,7 +472,8 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
             <p class="policy-title">
                 <b>Considerar que las siguientes prendas quedan en la planta, para su tratamiento44:</b>
             </p>
-  
+          
+   <p id="detallespend_field" class="align-left"></p>
 
     </div>
 
@@ -508,6 +509,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         var total_a_pagarElement = document.getElementById("total_a_pagar").textContent = total_a_pagar;
         var a_cuentaElement = document.getElementById("a_cuenta").textContent = a_cuenta;
         var detallespendElement = document.getElementById("detallespend").textContent = detallespend;
+        document.getElementById("detallespend_field").innerText = detallespend;
 
 
 
