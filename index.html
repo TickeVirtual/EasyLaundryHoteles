@@ -8,22 +8,19 @@
     <style>
       * {
         font-family: tahoma, Helvetica, sans-serif; /* tipo de letra de todo el ticket; */
-        font-size: 2.7mm !important;
+        font-size: 3.5mm !important;
         line-height: 1 !important;
       }
 
-
-      
-
       .info-tienda {
         margin-top: 0;
-        margin-bottom: 1mm;
+        margin-bottom:0mm;
         line-height: 4mm;
       }
 
       .nro_boleta {
         margin: 0;
-        font-size: 4mm !important;
+        font-size: 10mm !important;
       }
 
       .fecha_recepcion {
@@ -35,9 +32,9 @@
       }
 
       .nombre-cliente {
-        margin: 2mm;
+        margin: 0mm;
         margin-top: 0;
-        font-size: 3mm !important;
+        font-size: mm !important;
       }
 
       #thermal-pos {
@@ -51,10 +48,30 @@
       #thermal-pos h2 {
         font-size: 2mm;
         line-height: 13px;
+        font-weight: normal; /* Agrega esta línea para desactivar la negrita */
       }
       .label {
         margin: 0;
       }
+         .ticket {
+    text-align: center;
+   Padding-top: 0; /* Elimina el margen superior */
+   Padding-bottom: 0; /* Elimina el margen inferior */
+   Padding-right: 0;
+   Padding-left: 0;
+    
+
+    }
+       .fecharecep {
+    text-align: center;
+   Padding-top: 0; /* Elimina el margen superior */
+   Padding-bottom: 0; /* Elimina el margen inferior */
+   Padding-right: 0;
+   Padding-left: 0;
+    
+
+    }
+
       #thermal-pos .label {
         text-align: center;
         font-size: 2mm;
@@ -87,6 +104,7 @@
         font-size: 2.1mm;
         text-align: start;
         word-wrap: break-word;
+        font-weight: normal; /* Agrega esta línea para desactivar la negrita */
       }
 
       #thermal-pos .cantidad {
@@ -132,9 +150,9 @@
 
       .saldo-text {
         margin: 0;
-        font-size: 3mm;
-        text-align: left;
-      }
+        font-size: 15mm;
+        text-align: center;
+      } 
 
       .table-footer {
         vertical-align: bottom;
@@ -149,7 +167,7 @@
       }
 
       .estado-deuda {
-        font-size: 3.5mm !important;
+        font-size: 2.7mm !important;
       }
 
       .info {
@@ -167,7 +185,7 @@
 
       .m-0 {
         margin: 0 !important;
-
+        font-weight: normal; /* Agrega esta línea para desactivar la negrita */
         text-align: left;
       }
 
@@ -181,6 +199,7 @@
       .policy .policy-title {
         text-align: center;
         margin: 0;
+        font-weight: normal; /* Agrega esta línea para desactivar la negrita */
         
       }
       
@@ -228,6 +247,10 @@ img#impresoraButton {
     </style>
  </head>
 
+      <!-- <body onload="window.print()" onfocus="window.close()" -->
+      
+        <!--<button id="whatsappButton">ENVIAR WHATSAPP</button>
+       <!--<button id="Imprimirr">Print</button>-->
 
 
     <script>
@@ -246,7 +269,17 @@ img#impresoraButton {
         var total_a_pagar = params.has('total_a_pagar') ? params.get('total_a_pagar') : " ";
         var descuento = params.has('descuento') ? params.get('descuento') : " ";
         var a_cuenta = params.has('a_cuenta') ? params.get('a_cuenta') : " ";
-        var estado = params.has('estado') ? params.get('estado') : "--";
+        var desc_por_prenda = params.has('desc_por_prenda') ? params.get('desc_por_prenda') : " ";
+        var pagado_con = params.has('pagado_con') ? params.get('pagado_con') : "--";
+        var a_cuenta_dos = params.has('a_cuenta_dos') ? params.get('a_cuenta_dos') : " ";
+        var pagado_con_dos = params.has('pagado_con_dos') ? params.get('pagado_con_dos') : "--";
+        var porcent_desc = params.has('porcent_desc') ? params.get('porcent_desc') : " ";
+        var porcent_desc_plata = params.has('porcent_desc_plata') ? params.get('porcent_desc_plata') : " ";
+        var total_por_pagar = params.has('total_por_pagar') ? params.get('total_por_pagar') : " ";
+        var estado = params.has('detallespend') ? params.get('detallespend') : "--";
+        
+        
+        
 
         //Recibe los datos de los servicios (separados por comas)
         var cantidades = params.has('cantidades') ? params.get('cantidades') : "";
@@ -254,15 +287,12 @@ img#impresoraButton {
         var detalle = params.has('detalles') ? params.get('detalles') : "";
         var p_units = params.has('p_unit') ? params.get('p_unit') : "";
         var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
-      
-      //Pendientes
-
-        var cantidadespend = params.has('cantidadespend') ? params.get('cantidadespend') : "";
-        var serviciospend = params.has('serviciospend') ? params.get('serviciospend') : "";
-        var detallespend  = params.has('detallespend') ? params.get('detallespend') : "";
-    
         
-
+        //Formato de 2 decimales
+        //total = parseFloat(total).toLocaleString('es-ES', { minimumFractionDigits: 2 });
+        //descuento = parseFloat(descuento).toLocaleString('es-ES', { minimumFractionDigits: 2 });
+        //subtotal_desc = parseFloat(subtotal_desc).toLocaleString('es-ES', { minimumFractionDigits: 2 });
+        
         //crea una lista de cada columna a partir de las comas.
         cantidades = cantidades.split(",");
         descripciones = descripciones.split(",");
@@ -282,8 +312,6 @@ img#impresoraButton {
               
             };
         });
-
-
     </script>
     
     <div id="header">
@@ -292,13 +320,13 @@ img#impresoraButton {
          <div class="button-box">
   <!-- Botón de WhatsApp con ícono -->
   <a href="#" id="impresoraButton">
-   <img class="boton" src="Print.png" class="ImganelLogo" width= "45%" id "foto">
+  <img class="boton" src="Print.png" class="ImganelLogo" width= "60%" id "foto">
   </a>
   
   <!-- Botón existente de WhatsApp -->
   
   <a href="#" id="whatsappButton">
-   <img class="boton" src="wsp.png" class="ImganelLogo" width= "45%" id "foto">
+  <img class="boton" src="wsp.png" class="ImganelLogo" width= "60%" id "foto">
   </a>
     </div>
   </div>
@@ -309,52 +337,52 @@ img#impresoraButton {
         <div id="thermal-pos">
         
         <div class="label">
-             <img class="boton" src="Easy.png" class="ImganelLogo" width= "45%" id "foto">
+             <img class="boton" src="Lavaflash.png" class="ImganelLogo" width= "80%" id "foto">
             <br/>
             <p class="info-tienda">
-                Av. Luna Pizarro 505, Vallecito, Arequipa,
+                Jr Pablo Usandizaga 533
                 <br>
-                Email: facil.laundry@gmail.com
+                Telefono: 942279627 - 01 2251308
                 <br>
-                Horario de lunes a sábado de 8:00 am a 5:00 pm pr
+                -
+        
                 <br>
-                <br>
-            </p>
+              
+          
         </div>
         
         
-        <div class="label">
-            <b>TICKET:</b>
+        <div class="ticket">
+            <b>TICKET:<br>
             <h1 class="nro_boleta" id="nro_boleta_id" ></h1>
-        </div>
-        <div class="label">
+         </div>
+        <div class="fecharecep">
             <p class="fecha">
-                FECHA :
-                <br>
+                
+                <b>FECHA RECEPCION:<br>
                 <b id="fecha"></b>
-            </p>
-            <b>CLIENTE:</b>
-            <h1 class="nombre-cliente" id="mesa">
+            <br>
+            <b>CLIENTE:<br>
+            <h1 class="nombre-cliente" id="nombre_client">
             </h1>
         </div>
 
-        <!-- <div class="line">***********************************************</div> -->
-        
-       <div class="label">
+        <div class="label">
             <p class="fecha_entrega">
-                <b>
-                    -- <br>
-                    <span id="hora"></span>
+                <b> FECHA: <br>
+                    <span id="fecha_entrega"></span>
                 </b>
             </p>
         </div>
+      
+   
    
         <table class="table">
             <tbody id="tablaBody">
                 <tr class="table-header">
     <th><h2>Cant</h2></th>
     <th><h2>Descripcion</h2></th>
-     <th><h2>Detalle</h2></th>
+
     <th><h2>Precio</h2></th>
     <th><h2>Subtotal</h2></th> <!-- Nueva columna para Subtotal -->
                  </tr>
@@ -379,7 +407,7 @@ img#impresoraButton {
         
        <td class="item" style="text-align: right;">${row.cantidad}</td>
         <td class="item" style="text-align: right;">${row.descripcion}</td>
-        <td class="item" style="text-align: right;">${row.detalle}</td>
+
         <td class="item" style="text-align: right;">${row.precio_unit}</td> <!-- Alinea a la derecha -->
         <td class="item" style="text-align: right;">${subtotal.toFixed(2)}</td> <!-- Alinea a la derecha -->
     `;
@@ -392,10 +420,9 @@ img#impresoraButton {
                 /*print();*/
             });
         });
-
-
         
-
+        /*MENSAJE DE WHATSAPP
+                    ];*/
         
     </script>
                 
@@ -409,7 +436,7 @@ img#impresoraButton {
             
             
             // Mensaje a enviar junto con el enlace
-            var message = 'Hola!! somos de la lavandería Easy Laundry , somos una lavandería que cuida el medio ambiente ♻️♻️♻️♻️♻️, por ello adjuntamos su ticket de atención  virtual. Click en el link para ver el ticket 👇🏻👇🏻👇🏻 ' + currentURL;
+            var message = 'Hola!! somos de la lavandería, somos una lavandería que cuida el medio ambiente ♻️♻️♻️♻️♻️, por ello adjuntamos su ticket de atención  virtual. Click en el link para ver el ticket 👇🏻👇🏻👇🏻 ' + currentURL;
             
                // Código de país fijo
             //var countryCode = '+51';
@@ -449,71 +476,94 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
     
 
                 <tr class="table-footer top-line">
-                    <td class="" colspan="3"><h2>Total</h2></td>
+                    <td class="" colspan="3">Total Venta:</td>
                     <td colspan="3"><h2 id="total"></h2></td>
                 </tr>
-                <br/>
-              <br/>
+
                 <tr class="table-footer">
-                    <td colspan="1"><h2>Queda pendiente:</h2></td>
-                    <td colspan="1"><h2 id="detallespend"></h2></td>
+                    <td colspan="3"><h2>Desc x prenda:</h2></td>
+                    <td colspan="3"><h2 id="desc_por_prenda"></h2></td>
+                    
                 </tr>
-                                
+                 <tr class="table-footer">
+                    <td colspan="3"><h2>Desc ticket:</h2></td>
+                    <td colspan="3"><h2 id="subtotal_desc"></h2></td>
+                    
+                </tr>
+                
+                <tr class="table-footer">
+                    <td colspan="3"><h2>A cuenta 1:</h2></td>
+                    <td colspan="3"><h2 id="a_cuenta"></h2></td>
+                    
+                </tr>
+                    <tr class="table-footer">
+                    <td colspan="3"><h2>A cuenta 2:</h2></td>
+                    <td colspan="3"><h2 id="a_cuenta_dos"></h2></td>  
+             
+                </tr>
+                
+                <tr class="table-footer">
+                    <td colspan="3"><h2>Por Pagar</h2></td>
+                    <td colspan="3"><h2 id="total_por_pagar"></h2></td>
+                </tr>
+                
+                 
+                
+                <tr class="table-footer">
+                    <td colspan="3"><h2 id=0></h2></td>
+                    <td colspan="3"><h2 id="porcent_desc_plata"></h2></td>
+
+                </tr>
+                
+                 <tr class="table-footer">
+                    <td colspan="3"><h2></h2></td>
+                    <td colspan="3"><h2 id="porcent_desc_plata"></h2></td>
+                </tr>
+                
                 
             </tbody>
         </table>
         <br/>
-        <br/>
+
         <p class="saldo-text">
             <b><span class="estado-deuda" id="estado"></span></b>
         </p>
         <br/>
+       <div class="policy">
+            <p class="policy-title">
+                <b>IMPORTANTE_:</b>
+            </p>
+        
+            <p class="m-0">
+               1.- SE ENTREGARÁN LAS PRENDAS A LA PRESENTACIÓN DE ESTE DOCUMENTO.             
+            </p>
+    
         <div class="policy">
             <p class="policy-title">
-                <b>Considerar que las siguientes prendas quedan en la planta, para su tratamiento44:</b>
+                <b>GRACIAS POR SU PREFERENCIA!!</b>
             </p>
-          
-   <p id="detallespend_field" class="align-left"></p>
-
     </div>
-
-          <table>
-        <tr>
-        <th>Descripción</th>
-
-        </tr>
-        <p class="saldo-text">
-            <b><span class="detallespend" id="detallespend"></span></b>
-        </p>
-                         
-
-        
-        </tr>
-
-        <br/>
-        <p class="saldo-text">
-            <b><span class="detallespend" id="detallespend"></span></b>
-        </p>
-        <br/>
-
-          
     <script>
         var nroBoletaElement = document.getElementById("nro_boleta_id").textContent = nro_boleta;
         var fechaElement = document.getElementById("fecha").textContent = fecha;
-        var nombre_clientElement = document.getElementById("mesa").textContent = nombre_cliente;
-        var fecha_entregaElement = document.getElementById("hora").textContent = fecha_entrega;
+        var nombre_clientElement = document.getElementById("nombre_client").textContent = nombre_cliente;
+        var fecha_entregaElement = document.getElementById("fecha_entrega").textContent = fecha_entrega;
         
 
-        var totalElement = document.getElementById("total").textContent = total;
-        var subtotal_descElement = document.getElementById("subtotal_desc").textContent = subtotal_desc;
-        var total_a_pagarElement = document.getElementById("total_a_pagar").textContent = total_a_pagar;
-        var a_cuentaElement = document.getElementById("a_cuenta").textContent = a_cuenta;
-        var detallespendElement = document.getElementById("detallespend").textContent = detallespend;
-        document.getElementById("detallespend_field").innerText = detallespend;
+        var totalElement = document.getElementById("total");totalElement.textContent = parseFloat(total).toFixed(2);
+        var subtotal_descElement = document.getElementById("subtotal_desc");subtotal_descElement.textContent = parseFloat(subtotal_desc).toFixed(2);
+        var desc_por_prendaElement = document.getElementById("desc_por_prenda");desc_por_prendaElement.textContent = parseFloat(desc_por_prenda).toFixed(2);
+
+        var a_cuentaElement = document.getElementById("a_cuenta");a_cuentaElement.textContent = parseFloat(a_cuenta).toFixed(2);
+        var a_cuenta_dosElement = document.getElementById("a_cuenta_dos"); a_cuenta_dosElement.textContent = parseFloat(a_cuenta_dos).toFixed(2);
 
 
-
-      
+        var total_por_pagarElement = document.getElementById("total_por_pagar");total_por_pagarElement.textContent = parseFloat(total_por_pagar).toFixed(2);
+        //var porcent_descElement = document.getElementById("porcent_desc").textContent = porcent_desc;
+        //var porcent_desc_plataElement = document.getElementById("porcent_desc_plata").textContent = porcent_desc_plata;
+           
+        
+        var estadoElement = document.getElementById("estado").textContent = estado;
       </script>   
 
 <script>
@@ -533,4 +583,3 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
 
 </body>
 </html>
-
