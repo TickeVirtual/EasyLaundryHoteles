@@ -267,11 +267,8 @@ img#impresoraButton {
         var total = params.has('total') ? params.get('total') : "";
     
         var total_a_pagar = params.has('total_a_pagar') ? params.get('total_a_pagar') : " ";
-        var descuento = params.has('descuento') ? params.get('descuento') : " ";
-        var a_cuenta = params.has('a_cuenta') ? params.get('a_cuenta') : " ";
-     
+        var descuento = params.has('descuento') ? params.get('descuento') : " ";    
         var pagado_con = params.has('pagado_con') ? params.get('pagado_con') : "--";
-        var a_cuenta_dos = params.has('a_cuenta_dos') ? params.get('a_cuenta_dos') : " ";
         var pagado_con_dos = params.has('pagado_con_dos') ? params.get('pagado_con_dos') : "--";
         var porcent_desc = params.has('porcent_desc') ? params.get('porcent_desc') : " ";
         var porcent_desc_plata = params.has('porcent_desc_plata') ? params.get('porcent_desc_plata') : " ";
@@ -479,16 +476,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
 
 
                 
-                <tr class="table-footer">
-                    <td colspan="3"><h2>A cuenta 1:</h2></td>
-                    <td colspan="3"><h2 id="a_cuenta"></h2></td>
-                    
-                </tr>
-                    <tr class="table-footer">
-                    <td colspan="3"><h2>A cuenta 2:</h2></td>
-                    <td colspan="3"><h2 id="a_cuenta_dos"></h2></td>  
-             
-                </tr>
+
                 
                 <tr class="table-footer">
                     <td colspan="3"><h2>Por Pagar</h2></td>
@@ -537,16 +525,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         var fechaElement = document.getElementById("fecha").textContent = fecha;
         var nombre_clientElement = document.getElementById("nombre_client").textContent = nombre_cliente;
         var fecha_entregaElement = document.getElementById("fecha_entrega").textContent = fecha_entrega;
-        
-
         var totalElement = document.getElementById("total");totalElement.textContent = parseFloat(total).toFixed(2);
-
-     
-
-        var a_cuentaElement = document.getElementById("a_cuenta");a_cuentaElement.textContent = parseFloat(a_cuenta).toFixed(2);
-        var a_cuenta_dosElement = document.getElementById("a_cuenta_dos"); a_cuenta_dosElement.textContent = parseFloat(a_cuenta_dos).toFixed(2);
-
-
         var total_por_pagarElement = document.getElementById("total_por_pagar");total_por_pagarElement.textContent = parseFloat(total_por_pagar).toFixed(2);
         //var porcent_descElement = document.getElementById("porcent_desc").textContent = porcent_desc;
         //var porcent_desc_plataElement = document.getElementById("porcent_desc_plata").textContent = porcent_desc_plata;
