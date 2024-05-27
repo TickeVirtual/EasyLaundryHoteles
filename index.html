@@ -474,9 +474,6 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
                     <td class="" colspan="3">Total Venta:</td>
                     <td colspan="3"><h2 id="total"></h2></td>
                 </tr>
-                              
-
-                
                 
             </tbody>
         </table>
@@ -524,5 +521,21 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
 }
 </script>
 
+
+<script>
+  // Obtener el elemento span con la clase .estado-deuda
+  var estadoDeudaElement = document.getElementById("estado");
+
+  // Obtener el texto dentro del elemento span
+  var estadoDeudaTexto = estadoDeudaElement.textContent;
+
+  // Reemplazar comas con saltos de línea
+  estadoDeudaTexto = estadoDeudaTexto.replace(/,/g, '<br>');
+
+  // Asignar el texto modificado de nuevo al elemento span
+  estadoDeudaElement.innerHTML = estadoDeudaTexto;
+</script>
+              
+              
 </body>
 </html>
