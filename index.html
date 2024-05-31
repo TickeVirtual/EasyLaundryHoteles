@@ -287,10 +287,6 @@ img#impresoraButton {
         var detalle = params.has('detalles') ? params.get('detalles') : "";
         var p_units = params.has('p_unit') ? params.get('p_unit') : "";
         var subtotal = params.has('subtotal') ? params.get('subtotal') : "";
-        var result = params.has('result') ? JSON.parse(params.get('result')) : [];
-            result.sort((a, b) => a.ordencorrel - b.ordencorrel); // Ordenar por ordencorrel
-            result.forEach(function (item) {
-
         
 
         
@@ -542,3 +538,4 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
               
 </body>
 </html>
+
