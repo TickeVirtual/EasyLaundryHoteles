@@ -281,7 +281,7 @@ img#impresoraButton {
         
 
         //Recibe los datos de los servicios (separados por comas)
-        var ordencorrel = params.has('ordencorrel') ? params.get('ordencorrel') : "";
+       
         var cantidades = params.has('cantidades') ? params.get('cantidades') : "";
         var descripciones = params.has('servicios') ? params.get('servicios') : "";
         var detalle = params.has('detalles') ? params.get('detalles') : "";
@@ -291,7 +291,7 @@ img#impresoraButton {
 
         
         //crea una lista de cada columna a partir de las comas.
-        ordencorrel = ordencorrel.split(",");
+        
         cantidades = cantidades.split(",");
         descripciones = descripciones.split(",");
         detalle = detalle.split(",");
@@ -302,7 +302,7 @@ img#impresoraButton {
         
         cantidades.forEach(function(value, id) {
             result[id] = {
-               ordencorrel: ordencorrel[id],
+               
                 cantidad: cantidades[id],
                 descripcion: descripciones[id], // + " " + detalles[id], // Descomenta si deseas concatenar la descripción con el detalle
                 detalle: detalle[id],
@@ -378,10 +378,9 @@ img#impresoraButton {
         <table class="table">
             <tbody id="tablaBody">
                 <tr class="table-header">
-     <th><h2>Item</h2></th>             
+                  
     <th><h2>Cant</h2></th>
     <th><h2>Descripcion</h2></th>
-
     <th><h2>Precio</h2></th>
     <th><h2>Subtotal</h2></th> <!-- Nueva columna para Subtotal -->
                  </tr>
@@ -403,10 +402,9 @@ img#impresoraButton {
     
     newRow.innerHTML = `
 
-        <td class="item" style="text-align: right;">${row.ordencorrel}</td>
+        
        <td class="item" style="text-align: right;">${row.cantidad}</td>
         <td class="item" style="text-align: right;">${row.descripcion}</td>
-
         <td class="item" style="text-align: right;">${row.precio_unit}</td> <!-- Alinea a la derecha -->
         <td class="item" style="text-align: right;">${subtotal.toFixed(2)}</td> <!-- Alinea a la derecha -->
     `;
@@ -496,12 +494,7 @@ document.getElementById('impresoraButton').addEventListener('click', printTicket
         var fechaElement = document.getElementById("fecha").textContent = fecha;
         var nombre_clientElement = document.getElementById("nombre_client").textContent = nombre_cliente;
         var fecha_entregaElement = document.getElementById("fecha_entrega").textContent = fecha_entrega;
-        var totalElement = document.getElementById("total");totalElement.textContent = parseFloat(total).toFixed(2);
-
-        //var porcent_descElement = document.getElementById("porcent_desc").textContent = porcent_desc;
-        //var porcent_desc_plataElement = document.getElementById("porcent_desc_plata").textContent = porcent_desc_plata;
-           
-        
+        var totalElement = document.getElementById("total");totalElement.textContent = parseFloat(total).toFixed(2);     
         var estadoElement = document.getElementById("estado").textContent = estado;
       </script>   
 
