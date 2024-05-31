@@ -266,6 +266,7 @@ img#impresoraButton {
         var fecha = params.has('fecha') ? params.get('fecha') : "dd/mm/aaaa hh:mm:ss";
         var fecha_entrega = params.has('fecha_entrega') ? params.get('fecha_entrega') : " ";
         var total = params.has('total') ? params.get('total') : "";
+        var ordencorrel = params.has('ordencorrel') ? params.get('ordencorrel') : "";
     
         var total_a_pagar = params.has('total_a_pagar') ? params.get('total_a_pagar') : " ";
         var descuento = params.has('descuento') ? params.get('descuento') : " ";    
@@ -280,6 +281,7 @@ img#impresoraButton {
         
 
         //Recibe los datos de los servicios (separados por comas)
+        var ordencorrel = params.has('ordencorrel') ? params.get('ordencorrel') : "";
         var cantidades = params.has('cantidades') ? params.get('cantidades') : "";
         var descripciones = params.has('servicios') ? params.get('servicios') : "";
         var detalle = params.has('detalles') ? params.get('detalles') : "";
@@ -289,6 +291,7 @@ img#impresoraButton {
 
         
         //crea una lista de cada columna a partir de las comas.
+        ordencorrel = ordencorrel.split(",");
         cantidades = cantidades.split(",");
         descripciones = descripciones.split(",");
         detalle = detalle.split(",");
@@ -299,6 +302,7 @@ img#impresoraButton {
         
         cantidades.forEach(function(value, id) {
             result[id] = {
+               ordencorrel: ordencorrel[id],
                 cantidad: cantidades[id],
                 descripcion: descripciones[id], // + " " + detalles[id], // Descomenta si deseas concatenar la descripción con el detalle
                 detalle: detalle[id],
@@ -374,6 +378,7 @@ img#impresoraButton {
         <table class="table">
             <tbody id="tablaBody">
                 <tr class="table-header">
+     <th><h2>Item</h2></th>             
     <th><h2>Cant</h2></th>
     <th><h2>Descripcion</h2></th>
 
@@ -398,7 +403,7 @@ img#impresoraButton {
     
     newRow.innerHTML = `
 
-        
+        <td class="item" style="text-align: right;">${row.ordencorrel}</td>
        <td class="item" style="text-align: right;">${row.cantidad}</td>
         <td class="item" style="text-align: right;">${row.descripcion}</td>
 
