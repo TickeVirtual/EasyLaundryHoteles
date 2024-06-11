@@ -304,8 +304,8 @@ img#impresoraButton {
             result[id] = {
                
                 cantidad: cantidades[id],
-                descripcion: descripciones[id], // + " " + detalles[id], // Descomenta si deseas concatenar la descripción con el detalle
-                detalle: detalle[id],
+                descripcion: descripciones[id].replace(/-/g, '<br>'),
+                detalle: detalle[id].replace(/-/g, '<br>'),
                 subtotal: subtotal[id],
                 precio_unit: parseFloat(p_units[id]).toFixed(2),
               
