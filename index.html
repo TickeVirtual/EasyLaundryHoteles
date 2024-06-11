@@ -527,6 +527,20 @@ if (currentURL.indexOf('sharelink=1') !== -1) {
   // Asignar el texto modificado de nuevo al elemento span
   estadoDeudaElement.innerHTML = estadoDeudaTexto;
 </script>
+
+ <script>
+  // Obtener el elemento span con la clase .DETALLE VENTA
+  var estadoDetalleElement = document.getElementById("detalle");
+
+  // Obtener el texto dentro del elemento span
+  var estadoDetalleTexto = estadoDetalleElement.textContent;
+
+  // Reemplazar comas con saltos de línea
+  estadoDetalleTexto = estadoDetalleTexto.replace(/,/g, '<br>');
+
+  // Asignar el texto modificado de nuevo al elemento span
+  estadoDetalleElement.innerHTML = estadoDetalleTexto;
+</script>         
               
               
 </body>
